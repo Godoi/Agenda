@@ -1,0 +1,21 @@
+<cp-sidebar> </cp-sidebar>
+
+<div id="calendar" class="container-fluid">
+    <div class="today-summary">
+        <div id="summary-container-today"> 
+            <div class="item" *ngFor="let user of users">
+                <div>                                    
+                    <img alt="{{user.fullname}}" class="img-circle" src="../assets/images/thumb_user.png">
+                </div>
+                <div>
+                    <strong>{{user.fullname}}</strong><br>                   
+                </div>                
+                <div class="hover text-center">                                    
+                    <a href="javascript: void( 0 );" title="Alterar informações"> <span class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="javascript: void( 0 );" (click)="deleteUser(user.id)"><span class="glyphicon glyphicon-remove"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

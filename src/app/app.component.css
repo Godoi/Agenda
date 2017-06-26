@@ -1,0 +1,22 @@
+.dimed-nav-top{
+    background-color: #3986A9;
+    min-height: 75px;
+    display: block;
+    width: 100%;
+    margin: 0;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+ }
+ .logo{
+    background: #3986A9 url(../assets/images/sprite.png) no-repeat;
+    background-position: 0 -96px;
+    text-decoration: none;
+    overflow: hidden;
+    text-indent: -9999px;
+    position: relative;
+    display: block;
+    height: 34px;
+    margin: 17px 10px;
+ }
+

@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="login-box">
+    	<div class="login-box-body">
+    		<div class="panel panel-default">
+			  
+			    <h3 class="login-box-msg"> Cadastro </h3>
+			
+			  	<div class="panel-body">
+			    	<form [formGroup]="registerForm" (submit)="register($event)"> 
+                    <fieldset>
+                        <div class="form-group">
+			    		    <input 
+								class="form-control" 
+								placeholder="Nome completo" 
+								name="fullname" 
+								type="text"
+								formControlName="fullname"
+								[(ngModel)]="user.fullname"
+								[ngClass]="{'has-error':!registerForm.controls['fullname'].valid && registerForm.controls['fullname'].touched}">
+								
+								<span *ngIf="!registerForm.controls['fullname'].valid && registerForm.controls['fullname'].touched" class="form-control alert-danger mt5">
+									Campo 'Nome completo' obrigatório.
+								</span>  							
+						</div>
+			    	  	<div class="form-group">
+			    		    <input 
+								class="form-control" 
+								placeholder="Usuário" 
+								name="username" 
+								type="text"
+								formControlName="username"
+								[(ngModel)]="user.username"
+								[ngClass]="{'has-error':!registerForm.controls['username'].valid && registerForm.controls['username'].touched}">
+								<span *ngIf="!registerForm.controls['username'].valid && registerForm.controls['username'].touched" class="form-control alert-danger mt5">
+									Campo 'Usuário' obrigatório.
+								</span>  	
+			    		</div>
+			    		<div class="form-group">
+			    			<input 
+								class="form-control" 
+								placeholder="Password (mínimo 6 caracteres)" 
+								name="password" 
+								type="password"
+								formControlName="password"
+								[(ngModel)]="user.password"
+								[ngClass]="{'has-error':!registerForm.controls['password'].valid && registerForm.controls['password'].touched}">
+								<div *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched">
+									<span *ngIf="registerForm.controls['password'].errors.required" class="form-control alert-danger mt5">
+										Campo 'Password' obrigatório.
+									</span> 
+									<span *ngIf="registerForm.controls['password'].errors.minlength" class="form-control alert-danger mt5">
+										Campo 'Password' deve ter no mínimo 6 caracteres.
+									</span> 
+								</div>
+
+			    		</div>
+			    								
+						<img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+
+			    		<button class="btn btn-lg btn-success btn-register" type="submit" [disabled]="!registerForm.valid"> Cadastrar </button>
+                        <a class="btn btn-lg btn-cancel btn-default"  [routerLink]="['/login']"> Cancelar </a>
+			    	</fieldset>
+
+							 <cp-alert></cp-alert>
+							 
+					</form>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
